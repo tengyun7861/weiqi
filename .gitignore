@@ -1,0 +1,25 @@
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# CMake, Qt and MSVC generated output at any nesting depth.
+**/build/
+**/build-*/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/Testing/
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.lib
+*.exp
+*.dll
+*.sqlite
+*.sqlite3
+
+# Editor and Qt Creator state
+.vs/
+.vscode/
+**/.qt/
