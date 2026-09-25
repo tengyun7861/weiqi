@@ -3,8 +3,8 @@ project(weiqi_server VERSION 0.1.0 LANGUAGES C CXX)
 
 include(FetchContent)
 
-# All runtime dependencies are source-pinned.  No Node, JVM, PostgreSQL,
-# Redis, or external service is needed to run the server.
+# Runtime dependencies are pinned to fixed source revisions for reproducible
+# CMake configuration and local deployment.
 set(CROW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 set(CROW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(CROW_BUILD_DOCS OFF CACHE BOOL "" FORCE)

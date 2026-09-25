@@ -2,12 +2,11 @@
 
 这是围棋系统的正式 C++20 服务端：Crow REST/WebSocket、SQLite、服务端权威棋规和本地 KataGo GTP 均在此目录实现。
 
-在 Windows 的中文目录下，使用 MinGW Makefiles 时采用快速目标，避免生成器对 Unicode 绝对路径重复依赖扫描：
+请从根 CMake 工程通过 ASCII 构建入口配置，以避免 Qt 生成工具处理中文绝对路径时产生兼容性问题：
 
 ```powershell
-cmake -S server-cpp -B server-cpp\build -G "MinGW Makefiles"
-cmake --build server-cpp\build --target weiqi_rules_test/fast
-ctest --test-dir server-cpp\build --output-on-failure
+cmake -S E:\weiqi-cmake -B E:\weiqi-cmake\build-msvc -G "Visual Studio 18 2026" -A x64 -DQt6_DIR=D:\Qt\6.11.2\msvc2022_64\lib\cmake\Qt6
+cmake --build E:\weiqi-cmake\build-msvc --config Release --target weiqi_server
 ```
 
 从根 CMake 工程构建 `weiqi_server`。默认监听 `0.0.0.0:8081`，启动形式为：
@@ -16,4 +15,4 @@ ctest --test-dir server-cpp\build --output-on-failure
 weiqi_server.exe .\data\weiqi.sqlite3 8081
 ```
 
-详情见 [`../docs/cpp-qt-migration.md`](../docs/cpp-qt-migration.md)。
+详情见[部署说明](../docs/deployment.md)。

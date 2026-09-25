@@ -1,6 +1,6 @@
 # 弈境围棋（C++ / Qt 6）
 
-本目录是本机/局域网围棋系统的正式源码：C++20、Qt 6、CMake 与 SQLite。运行入口只有 `server-cpp` 与 `client-qt`，不依赖 Java、Node.js、Supabase、PostgreSQL 或 Redis。
+弈境围棋是一套面向本机和局域网的围棋对战系统，采用 C++20、Qt 6、CMake 与 SQLite 实现。运行入口为 `server-cpp` 与 `client-qt`。
 
 源代码保留在 `E:\围棋`；请通过 ASCII Junction `E:\weiqi-cmake` 构建：
 
@@ -16,4 +16,4 @@ ctest --test-dir E:\weiqi-cmake\build-msvc -C Release --output-on-failure
 .\build-msvc\server-cpp\Release\weiqi_server.exe .\data\weiqi.sqlite3 8081
 ```
 
-部署、局域网防火墙、SQLite 备份和 KataGo 配置见 [C++/Qt 迁移说明](docs/cpp-qt-migration.md)。旧 Web/Spring 工程及旧配置已移至 `E:\围棋-legacy-archive`，不属于正式交付源码。
+部署、局域网防火墙、SQLite 备份和 KataGo 配置见[部署说明](docs/deployment.md)。
