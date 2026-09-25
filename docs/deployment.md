@@ -2,12 +2,12 @@
 
 ## 构建与启动
 
-源代码位于 `E:\围棋`。为确保 Qt/MSVC 生成工具稳定处理工程路径，请从 ASCII 构建入口 `E:\weiqi-cmake` 配置：
+源代码与构建产物统一位于 `E:\weiqi`，可直接配置：
 
 ```powershell
-cmake -S E:\weiqi-cmake -B E:\weiqi-cmake\build-msvc -G "Visual Studio 18 2026" -A x64 -DQt6_DIR=D:\Qt\6.11.2\msvc2022_64\lib\cmake\Qt6
-cmake --build E:\weiqi-cmake\build-msvc --config Release
-ctest --test-dir E:\weiqi-cmake\build-msvc -C Release --output-on-failure
+cmake -S E:\weiqi -B E:\weiqi\build-msvc -G "Visual Studio 18 2026" -A x64 -DQt6_DIR=D:\Qt\6.11.2\msvc2022_64\lib\cmake\Qt6
+cmake --build E:\weiqi\build-msvc --config Release
+ctest --test-dir E:\weiqi\build-msvc -C Release --output-on-failure
 ```
 
 服务端默认端口为 `8081`：

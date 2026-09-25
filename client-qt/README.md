@@ -7,7 +7,7 @@
 构建命令：
 
 ```powershell
-# 使用 ASCII 构建入口，避免 qmlimportscanner 误处理中文绝对路径
-cmake -S E:\weiqi-cmake -B E:\weiqi-cmake\build-msvc -G "Visual Studio 18 2026" -A x64 -DQt6_DIR=D:\Qt\6.11.2\msvc2022_64\lib\cmake\Qt6
-cmake --build E:\weiqi-cmake\build-msvc --config Release --target weiqi_client
+# 源码路径已是 ASCII，可直接构建
+cmake -S E:\weiqi -B E:\weiqi\build-msvc -G "Visual Studio 18 2026" -A x64 -DQt6_DIR=D:\Qt\6.11.2\msvc2022_64\lib\cmake\Qt6
+cmake --build E:\weiqi\build-msvc --config Release --target weiqi_client
 ```
