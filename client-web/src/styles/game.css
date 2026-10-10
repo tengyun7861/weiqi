@@ -1,0 +1,143 @@
+.heading-room-code {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: #8698a8;
+  padding-left: 17px;
+  vertical-align: middle;
+}
+.game-heading {
+  padding-top: 0;
+}
+.game-heading h1 {
+  font-size: 28px;
+}
+.game-heading .intro-kicker {
+  margin-bottom: 8px;
+}
+.game-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 304px;
+  gap: 35px;
+}
+.board-workspace {
+  max-width: 700px;
+  min-width: 0;
+  width: 100%;
+  padding: 0 16px;
+}
+.board-caption {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 17px;
+  font-size: 13px;
+  min-height: 22px;
+}
+.turn-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #65788a;
+}
+.turn-dot.black {
+  background: #23374a;
+}
+.turn-dot.white {
+  background: #fff;
+}
+.move-counter {
+  margin-left: auto;
+  color: #9aa5b0;
+  font-size: 12px;
+}
+.board-bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #8e9aa8;
+  margin-top: 14px;
+  gap: 12px;
+}
+.game-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+.game-sidebar {
+  padding-top: 0;
+  min-width: 0;
+}
+.result-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  background: #e9f2ed;
+  border: 1px solid #d3e3da;
+  border-radius: 8px;
+  padding: 17px 22px;
+  margin-bottom: 24px;
+  color: #3e735c;
+}
+.result-banner span {
+  display: block;
+  font-size: 12px;
+  margin-top: 4px;
+  color: #6a907e;
+}
+@media (max-width: 1100px) {
+  .game-layout {
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr) 280px;
+  }
+  .board-workspace {
+    padding: 0;
+  }
+}
+@media (max-width: 760px) {
+  .game-heading h1 {
+    font-size: 24px;
+  }
+  .game-heading > .inline-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .heading-room-code {
+    font-size: 12px;
+    padding-left: 10px;
+  }
+  .game-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .board-caption {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+  .board-bottom {
+    font-size: 10px;
+  }
+  .game-actions {
+    margin-top: 15px;
+    gap: 13px;
+  }
+  .game-actions .button {
+    font-size: 12px;
+  }
+  .result-banner {
+    padding: 14px;
+    gap: 12px;
+  }
+  .result-banner strong {
+    font-size: 13px;
+  }
+  .result-banner span {
+    font-size: 10px;
+  }
+  .result-banner .button {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+}

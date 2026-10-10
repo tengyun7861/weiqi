@@ -5,19 +5,26 @@
 namespace weiqi {
 
 Database::Database(std::string file_path) {
-    if (sqlite3_open_v2(file_path.c_str(), &db_, SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_FULLMUTEX, nullptr) != SQLITE_OK) {
+    if (sqlite3_open_v2(file_path.c_str(), &db_,
+                        SQLITE_OPEN_READWRITE | SQLITE_OPEN_CREATE | SQLITE_OPEN_FULLMUTEX,
+                        nullptr) != SQLITE_OK) {
         const std::string error = db_ ? sqlite3_errmsg(db_) : "无法打开 SQLite 数据库";
-        if (db_) sqlite3_close(db_);
+        if (db_)
+            sqlite3_close(db_);
         throw std::runtime_error(error);
     }
     execute("PRAGMA foreign_keys = ON;");
+    sqlite3_busy_timeout(db_, 5000);
     execute("PRAGMA journal_mode = WAL;");
 }
 
-Database::~Database() { if (db_) sqlite3_close(db_); }
+Database::~Database() {
+    if (db_)
+        sqlite3_close(db_);
+}
 
-void Database::execute(const char* sql) {
-    char* error{};
+void Database::execute(const char *sql) {
+    char *error{};
     if (sqlite3_exec(db_, sql, nullptr, nullptr, &error) != SQLITE_OK) {
         const std::string message = error ? error : "SQLite 执行失败";
         sqlite3_free(error);
@@ -25,10 +32,21 @@ void Database::execute(const char* sql) {
     }
 }
 
-void Database::add_column_if_missing(const char* table, const char* column, const char* definition) {
-    sqlite3_stmt* statement{}; sqlite3_prepare_v2(db_, (std::string("PRAGMA table_info(") + table + ')').c_str(), -1, &statement, nullptr);
-    bool found{}; while (sqlite3_step(statement) == SQLITE_ROW) { const auto name = reinterpret_cast<const char*>(sqlite3_column_text(statement, 1)); if (name && std::string(name) == column) { found = true; break; } } sqlite3_finalize(statement);
-    if (!found) execute((std::string("ALTER TABLE ") + table + " ADD COLUMN " + definition).c_str());
+void Database::add_column_if_missing(const char *table, const char *column, const char *definition) {
+    sqlite3_stmt *statement{};
+    sqlite3_prepare_v2(db_, (std::string("PRAGMA table_info(") + table + ')').c_str(), -1, &statement,
+                       nullptr);
+    bool found{};
+    while (sqlite3_step(statement) == SQLITE_ROW) {
+        const auto name = reinterpret_cast<const char *>(sqlite3_column_text(statement, 1));
+        if (name && std::string(name) == column) {
+            found = true;
+            break;
+        }
+    }
+    sqlite3_finalize(statement);
+    if (!found)
+        execute((std::string("ALTER TABLE ") + table + " ADD COLUMN " + definition).c_str());
 }
 
 void Database::migrate() {

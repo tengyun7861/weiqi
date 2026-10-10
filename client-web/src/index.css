@@ -1,0 +1,107 @@
+:root {
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Noto Sans SC', sans-serif;
+  color: #20354b;
+  background: #f6f8fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+  --ink: #20354b;
+  --muted: #758291;
+  --line: #dfe5ec;
+  --blue: #203e59;
+  --paper: #fff;
+  --green: #337c6b;
+  --red: #b24d4d;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+}
+button,
+input,
+select {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+button {
+  color: inherit;
+}
+input,
+select {
+  width: 100%;
+  height: 43px;
+  border: 1px solid #ccd5df;
+  border-radius: 7px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0 12px;
+  min-width: 0;
+}
+input::placeholder {
+  color: #929da9;
+}
+input:focus,
+select:focus {
+  outline: 2px solid #aec5d9;
+  outline-offset: 2px;
+}
+button:focus-visible,
+a:focus-visible,
+[role='button']:focus-visible {
+  outline: 3px solid #83abc9;
+  outline-offset: 3px;
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+h1 {
+  font-family: 'Noto Serif SC', 'Songti SC', SimSun, serif;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  font-size: 38px;
+  line-height: 1.35;
+}
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+svg {
+  flex-shrink: 0;
+}
+a {
+  color: var(--blue);
+}
+::selection {
+  background: #d9e7ef;
+}
+input[type='checkbox'] {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--blue);
+}
+input[type='range'] {
+  padding: 0;
+  accent-color: var(--blue);
+  height: 24px;
+  border: 0;
+  background: none;
+}

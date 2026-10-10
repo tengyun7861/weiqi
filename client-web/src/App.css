@@ -1,0 +1,11 @@
+@import './styles/shell.css';
+@import './styles/shared.css';
+@import './styles/lobby.css';
+@import './styles/game.css';
+@import './styles/board.css';
+@import './styles/players.css';
+@import './styles/chat.css';
+@import './styles/replay.css';
+@import './styles/ai.css';
+@import './styles/modal.css';
+@import './styles/notice.css';

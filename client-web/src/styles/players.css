@@ -1,0 +1,73 @@
+.players-panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 23px;
+}
+.player-card {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  padding: 19px 16px;
+  border-left: 3px solid transparent;
+}
+.player-card + .player-card {
+  border-top: 1px solid #edf1f5;
+}
+.player-card.active {
+  border-left-color: #527fa0;
+  background: #f1f6fa;
+}
+.player-stone {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px #20354b20;
+}
+.player-stone.black {
+  background: radial-gradient(at 30% 25%, #586571, #172533 70%);
+}
+.player-stone.white {
+  background: radial-gradient(at 30% 25%, #fff, #e1e6eb);
+  border: 1px solid #c9d2da;
+}
+.player-color {
+  font-size: 10px;
+  color: #93a0ae;
+}
+.player-card h2 {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.player-clock {
+  display: flex;
+  gap: 5px;
+  color: #526c82;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.timer-note {
+  border-top: 1px solid #edf1f5;
+  padding: 12px 16px;
+  font-size: 10px;
+  color: #92a0ad;
+  line-height: 1.8;
+}
+@media (max-width: 760px) {
+  .players-panel {
+    margin-bottom: 15px;
+  }
+  .player-card {
+    padding: 14px;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+  }
+  .player-clock {
+    font-size: 15px;
+  }
+}

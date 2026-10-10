@@ -1,0 +1,122 @@
+.ai-layout {
+  display: grid;
+  grid-template-columns: 390px minmax(0, 1fr);
+  gap: 76px;
+  align-items: center;
+  padding-top: 8px;
+}
+.ai-settings {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px;
+}
+.engine-status {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #a08353;
+  font-size: 11px;
+  margin-bottom: 21px;
+}
+.engine-status > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #bba06e;
+}
+.engine-status.available {
+  color: var(--green);
+}
+.engine-status.available > span {
+  background: var(--green);
+}
+.ai-settings h2 {
+  font-size: 20px;
+  font-family: SimSun, serif;
+  margin-bottom: 19px;
+}
+.size-options {
+  display: flex;
+  gap: 10px;
+}
+.size-options button {
+  flex: 1;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 14px 7px;
+}
+.size-options button.selected {
+  background: #edf3f8;
+  border-color: #7091ad;
+}
+.size-options strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+.size-options span {
+  display: block;
+  font-size: 10px;
+  color: #8d9dad;
+  margin-top: 5px;
+}
+.ai-description {
+  font-size: 12px;
+  color: #8191a0;
+  line-height: 1.9;
+  margin: 19px 0;
+}
+.engine-empty {
+  background: #f7f8fa;
+  border-radius: 7px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.engine-empty h3 {
+  font-size: 13px;
+  color: #708294;
+}
+.engine-empty p {
+  font-size: 11px;
+  color: #8a99a7;
+  margin: 6px 0;
+}
+.engine-empty .button {
+  font-size: 11px;
+  padding: 3px 0;
+  min-height: 26px;
+}
+.ai-settings > .subtle {
+  margin-top: 10px;
+}
+.ai-board {
+  width: 100%;
+  max-width: 515px;
+  justify-self: center;
+}
+.ai-board .board-frame {
+  box-shadow: 0 12px 24px #20354b12;
+}
+@media (max-width: 1100px) {
+  .ai-layout {
+    gap: 35px;
+    grid-template-columns: 355px minmax(0, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .ai-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ai-settings {
+    padding: 23px;
+  }
+  .ai-board {
+    max-width: 420px;
+  }
+  .ai-board .preview-label {
+    margin-top: 14px;
+  }
+}

@@ -6,6 +6,7 @@
 
 namespace weiqi {
 
-int run_api_server(AuthService& auth, GameService& games, KataGoGtp& katago, unsigned short port);
+int run_api_server(AuthService &auth, GameService &games, KataGoGtp &katago, unsigned short port,
+                   const std::string &web_root);
 
 } // namespace weiqi

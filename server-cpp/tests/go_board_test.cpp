@@ -14,19 +14,23 @@ int main() {
     GoBoard board(9);
     assert(board.current_player() == Stone::black);
     assert(!board.play(-1, 0).accepted);
-    assert(board.play(1, 0).accepted);  // B
-    assert(board.play(1, 1).accepted);  // W
-    assert(board.play(0, 1).accepted);  // B
-    assert(board.play(8, 8).accepted);  // W
-    assert(board.play(2, 1).accepted);  // B
-    assert(board.play(8, 7).accepted);  // W
+    assert(board.play(1, 0).accepted);     // B
+    assert(board.play(1, 1).accepted);     // W
+    assert(board.play(0, 1).accepted);     // B
+    assert(board.play(8, 8).accepted);     // W
+    assert(board.play(2, 1).accepted);     // B
+    assert(board.play(8, 7).accepted);     // W
     const auto capture = board.play(1, 2); // B captures the white stone
     assert(capture.accepted && capture.captured == 1);
     assert(board.at(1, 1) == Stone::empty);
     assert(!board.play(1, 0).accepted);
 
     bool rejected_size = false;
-    try { GoBoard invalid(10); } catch (const std::invalid_argument&) { rejected_size = true; }
+    try {
+        GoBoard invalid(10);
+    } catch (const std::invalid_argument &) {
+        rejected_size = true;
+    }
     assert(rejected_size);
 
     const auto sgf = weiqi::make_sgf(9, 7.5, {{Stone::black, 0, 0}, {Stone::white, -1, -1}});

@@ -1,0 +1,144 @@
+.replay-layout {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 30px;
+}
+.records-panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  align-self: start;
+  overflow: hidden;
+}
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 17px;
+  border-bottom: 1px solid #e7ecf2;
+}
+.panel-heading h2 {
+  font-size: 15px;
+}
+.records-empty {
+  padding: 35px 20px;
+  font-size: 13px;
+  color: #8396a5;
+}
+.records-empty span {
+  display: block;
+  font-size: 11px;
+  color: #a0acb6;
+  margin-top: 7px;
+}
+.record-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #edf0f4;
+  padding: 8px 10px 8px 17px;
+}
+.record-open {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 9px 0;
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  text-align: left;
+}
+.record-open span {
+  font-size: 11px;
+  color: #8b9baa;
+}
+.record-open strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.record-open small {
+  font-size: 10px;
+  color: #a2aeb8;
+}
+.record-row:hover {
+  background: #f4f7fa;
+}
+.replay-workspace {
+  min-width: 0;
+  padding: 0 24px;
+  max-width: 750px;
+}
+.replay-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.replay-title h2 {
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+.replay-title > span {
+  font-size: 11px;
+  color: #8b9cab;
+}
+.replay-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-top: 18px;
+}
+.replay-controls input {
+  flex: 1;
+}
+.replay-controls > span {
+  font-size: 12px;
+  color: #748ba0;
+  white-space: nowrap;
+  min-width: 64px;
+  text-align: right;
+}
+.replay-note {
+  text-align: center;
+  font-size: 11px;
+  color: #93a0ad;
+  margin-top: 8px;
+}
+.replay-empty {
+  min-height: 425px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1100px) {
+  .replay-workspace {
+    padding: 0;
+  }
+}
+@media (max-width: 760px) {
+  .replay-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .records-panel {
+    max-height: 250px;
+    overflow: auto;
+  }
+  .replay-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .replay-controls {
+    gap: 7px;
+  }
+  .replay-controls > span {
+    font-size: 11px;
+    min-width: 58px;
+  }
+  .replay-empty {
+    min-height: 240px;
+  }
+}

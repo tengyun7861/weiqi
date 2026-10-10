@@ -1,0 +1,265 @@
+.lobby-intro {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  align-items: center;
+  min-height: 315px;
+  padding: 14px 28px 35px;
+  gap: 40px;
+}
+.intro-copy > p:not(.intro-kicker) {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #738191;
+  margin-top: 17px;
+}
+.intro-actions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 26px;
+}
+.supported-sizes {
+  display: flex;
+  gap: 18px;
+  margin-top: 25px;
+  font-size: 11px;
+  color: #80909f;
+}
+.rule-note {
+  border-left: 1px solid #ced7df;
+  padding-left: 18px;
+}
+.intro-board {
+  width: 275px;
+  justify-self: center;
+}
+.intro-board .board-frame {
+  transform: rotate(-4deg);
+  box-shadow: 0 17px 28px #20354b14;
+}
+.start-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #dce4ed;
+  border-radius: 10px;
+  background: #eaf0f6;
+  padding: 27px 30px;
+  gap: 30px;
+  margin-bottom: 34px;
+}
+.match-box,
+.invite-box {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.start-strip h2 {
+  font-size: 16px;
+}
+.start-strip p {
+  font-size: 12px;
+  color: #7a8796;
+  margin-top: 4px;
+}
+.invite-box {
+  border-left: 1px solid #d1dce7;
+  padding-left: 30px;
+}
+.room-section {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 26px 30px;
+}
+.room-row {
+  display: flex;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid #edf0f4;
+  gap: 18px;
+}
+.room-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 49px;
+  height: 49px;
+  border-radius: 8px;
+  background: #f1f5f8;
+  color: #5d7a91;
+}
+.room-description {
+  flex: 1;
+  min-width: 0;
+}
+.room-description h3 {
+  font-size: 15px;
+}
+.room-status {
+  font-size: 11px;
+  font-weight: 400;
+  margin-left: 13px;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.room-status.waiting {
+  color: #367965;
+  background: #eaf3ee;
+}
+.room-status.playing {
+  color: #507a99;
+  background: #eaf1f8;
+}
+.room-code {
+  color: #8c99a7;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+@media (min-width: 1250px) {
+  .start-strip .match-box,
+  .start-strip .invite-box {
+    flex-wrap: nowrap;
+  }
+  .start-strip {
+    padding-left: 25px;
+    padding-right: 25px;
+    gap: 22px;
+  }
+  .invite-box {
+    padding-left: 22px;
+  }
+}
+@media (max-width: 1100px) {
+  .lobby-intro {
+    padding-left: 8px;
+    padding-right: 8px;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+  }
+  .intro-board {
+    width: 245px;
+  }
+  .start-strip {
+    padding: 23px;
+    gap: 22px;
+  }
+  .match-box,
+  .invite-box {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .invite-box {
+    padding-left: 22px;
+  }
+}
+@media (max-width: 760px) {
+  .lobby-intro {
+    display: block;
+    min-height: 0;
+    padding: 9px 4px 30px;
+  }
+  .intro-board {
+    display: none;
+  }
+  .intro-copy > p:not(.intro-kicker) {
+    font-size: 13px;
+    margin-top: 14px;
+  }
+  .intro-actions {
+    gap: 17px;
+    margin-top: 22px;
+  }
+  .intro-actions .button {
+    font-size: 12px;
+    padding: 9px 13px;
+  }
+  .intro-actions .text-button {
+    padding: 9px 0;
+  }
+  .supported-sizes {
+    margin-top: 19px;
+    font-size: 10px;
+  }
+  .start-strip {
+    grid-template-columns: 1fr;
+    gap: 21px;
+    padding: 22px;
+    margin-bottom: 24px;
+  }
+  .invite-box {
+    padding: 19px 0 0;
+    border-left: 0;
+    border-top: 1px solid #d1dce7;
+  }
+  .match-box,
+  .invite-box {
+    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+  }
+  .start-strip h2 {
+    font-size: 15px;
+  }
+  .start-strip p {
+    font-size: 11px;
+  }
+  .start-strip .inline-actions {
+    width: 100%;
+  }
+  .start-strip input {
+    flex: 1;
+    width: 140px;
+  }
+  .room-section {
+    padding: 20px 17px;
+  }
+  .section-heading {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .section-heading h2 {
+    font-size: 17px;
+  }
+  .section-heading p {
+    font-size: 11px;
+  }
+  .section-heading > .button {
+    font-size: 11px;
+    padding: 5px 8px;
+    min-height: 32px;
+  }
+  .section-heading > .button svg {
+    width: 15px;
+  }
+  .room-row {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .room-icon {
+    width: 36px;
+    height: 36px;
+  }
+  .room-icon svg {
+    width: 22px;
+  }
+  .room-description h3 {
+    font-size: 13px;
+  }
+  .room-status {
+    font-size: 9px;
+    margin-left: 5px;
+    padding: 2px 4px;
+  }
+  .room-row .inline-actions {
+    gap: 6px;
+    margin-left: auto;
+  }
+  .room-row .small {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+}

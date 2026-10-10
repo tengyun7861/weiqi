@@ -1,0 +1,47 @@
+.board-frame {
+  background: #bf9357;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow:
+    0 6px 16px #76532a1c,
+    inset 0 0 0 1px #976e3e55;
+  width: 100%;
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+.go-board {
+  width: 100%;
+  height: 100%;
+  display: block;
+  user-select: none;
+  touch-action: manipulation;
+}
+.board-targets rect[aria-disabled='false'] {
+  cursor: pointer;
+}
+.board-targets rect:focus-visible {
+  stroke: #4f799a;
+  stroke-width: 2;
+  outline: none;
+  fill: #30577718;
+}
+.stone {
+  transform-origin: var(--cx) var(--cy);
+  animation: stone-in 0.2s ease-out;
+}
+@keyframes stone-in {
+  from {
+    opacity: 0.3;
+    transform: scale(0.75);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 760px) {
+  .board-frame {
+    padding: 6px;
+    border-radius: 9px;
+  }
+}

@@ -81,25 +81,47 @@ AreaScore GoBoard::chinese_area_score() const {
     std::vector<bool> visited(points_.size());
     constexpr std::array<std::pair<int, int>, 4> directions{{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}};
     for (int start = 0; start < static_cast<int>(points_.size()); ++start) {
-        if (visited[start]) continue;
-        if (points_[start] == Stone::black) { ++score.black; visited[start] = true; continue; }
-        if (points_[start] == Stone::white) { ++score.white; visited[start] = true; continue; }
-        std::queue<int> pending; std::vector<int> territory; bool adjacent_black{}; bool adjacent_white{};
-        pending.push(start); visited[start] = true;
+        if (visited[start])
+            continue;
+        if (points_[start] == Stone::black) {
+            ++score.black;
+            visited[start] = true;
+            continue;
+        }
+        if (points_[start] == Stone::white) {
+            ++score.white;
+            visited[start] = true;
+            continue;
+        }
+        std::queue<int> pending;
+        std::vector<int> territory;
+        bool adjacent_black{};
+        bool adjacent_white{};
+        pending.push(start);
+        visited[start] = true;
         while (!pending.empty()) {
-            const int point = pending.front(); pending.pop(); territory.push_back(point);
+            const int point = pending.front();
+            pending.pop();
+            territory.push_back(point);
             const int x = point % size_, y = point / size_;
             for (const auto [dx, dy] : directions) {
                 const int nx = x + dx, ny = y + dy;
-                if (!in_bounds(nx, ny)) continue;
+                if (!in_bounds(nx, ny))
+                    continue;
                 const int adjacent = index(nx, ny);
-                if (points_[adjacent] == Stone::empty && !visited[adjacent]) { visited[adjacent] = true; pending.push(adjacent); }
-                else if (points_[adjacent] == Stone::black) adjacent_black = true;
-                else if (points_[adjacent] == Stone::white) adjacent_white = true;
+                if (points_[adjacent] == Stone::empty && !visited[adjacent]) {
+                    visited[adjacent] = true;
+                    pending.push(adjacent);
+                } else if (points_[adjacent] == Stone::black)
+                    adjacent_black = true;
+                else if (points_[adjacent] == Stone::white)
+                    adjacent_white = true;
             }
         }
-        if (adjacent_black && !adjacent_white) score.black += static_cast<int>(territory.size());
-        if (adjacent_white && !adjacent_black) score.white += static_cast<int>(territory.size());
+        if (adjacent_black && !adjacent_white)
+            score.black += static_cast<int>(territory.size());
+        if (adjacent_white && !adjacent_black)
+            score.white += static_cast<int>(territory.size());
     }
     return score;
 }
@@ -108,7 +130,9 @@ bool GoBoard::in_bounds(int x, int y) const noexcept {
     return x >= 0 && y >= 0 && x < size_ && y < size_;
 }
 
-int GoBoard::index(int x, int y) const noexcept { return y * size_ + x; }
+int GoBoard::index(int x, int y) const noexcept {
+    return y * size_ + x;
+}
 
 std::vector<int> GoBoard::group_at(int start) const {
     const Stone color = points_[start];
@@ -128,7 +152,8 @@ std::vector<int> GoBoard::group_at(int start) const {
         for (const auto [dx, dy] : directions) {
             const int nx = x + dx;
             const int ny = y + dy;
-            if (!in_bounds(nx, ny)) continue;
+            if (!in_bounds(nx, ny))
+                continue;
             const int adjacent = index(nx, ny);
             if (!seen[adjacent] && points_[adjacent] == color) {
                 seen[adjacent] = true;
@@ -139,7 +164,7 @@ std::vector<int> GoBoard::group_at(int start) const {
     return group;
 }
 
-bool GoBoard::has_liberty(const std::vector<int>& group) const {
+bool GoBoard::has_liberty(const std::vector<int> &group) const {
     constexpr std::array<std::pair<int, int>, 4> directions{{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}};
     for (const int point : group) {
         const int x = point % size_;
@@ -147,14 +172,16 @@ bool GoBoard::has_liberty(const std::vector<int>& group) const {
         for (const auto [dx, dy] : directions) {
             const int nx = x + dx;
             const int ny = y + dy;
-            if (in_bounds(nx, ny) && points_[index(nx, ny)] == Stone::empty) return true;
+            if (in_bounds(nx, ny) && points_[index(nx, ny)] == Stone::empty)
+                return true;
         }
     }
     return false;
 }
 
-int GoBoard::remove_group(const std::vector<int>& group) {
-    for (const int point : group) points_[point] = Stone::empty;
+int GoBoard::remove_group(const std::vector<int> &group) {
+    for (const int point : group)
+        points_[point] = Stone::empty;
     return static_cast<int>(group.size());
 }
 

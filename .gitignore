@@ -18,6 +18,14 @@
 *.dll
 *.sqlite
 *.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+node_modules/
+client-web/dist/
+client-web/.vite/
+verification/
+data/
+*.tsbuildinfo
 
 # Editor and Qt Creator state
 .vs/
